@@ -125,3 +125,259 @@ Ba bản cá nhân liệt kê tổng cộng 23 dòng stakeholder. Sau khi đối
 ---
 
 > **Nguyên tắc chung:** Mỗi hành động phải gọi tên được *ai làm*, *làm gì*, *trước ngày nào* và *kết quả bàn giao là gì*. Không viết chiến lược kiểu "Giữ liên hệ tốt" hay "Tăng cường hợp tác".
+
+---
+
+# Trang 2 — Pitch & RACI (Bản Thống Nhất Team 333)
+
+---
+
+## Bước 1 — Chọn Stakeholder & Viết Pitch Nháp (Team — 10')
+
+**Stakeholder team chọn để pitch:** **S1 — LC-01, Lab Coach**
+
+*Lý do chọn:* Đây là stakeholder nguy hiểm nhất trong bản đồ — nằm ở vùng Champion (Influence Cao × Interest Cao) nhưng stance thực tế là Chưa ủng hộ. Nếu không xử lý được chỗ này thì nhóm không có môi trường thử nghiệm thật, và LC-01 cũng là người duy nhất có thể chỉ ra nhóm learner im lặng mà team còn thiếu dữ liệu.
+
+---
+
+### Pitch Nháp Của Team (Tối đa nửa trang)
+
+**Kết luận:** Nhóm muốn xin LC-01 mười phút để hỏi một câu: cái gì sẽ khiến chị thấy công cụ này làm chị nhẹ đi chứ không nặng thêm?
+
+**Lý do — Vì sao LC-01 nên quan tâm:**
+
+1. Chị đang chọn ít can thiệp để học viên tự rèn — đó là quyết định sư phạm của chị. Nhưng phần câu hỏi không được trả lời không biến mất, nó đang chảy ra ngoài theo các kênh chị không kiểm soát được.
+2. Học viên đang đi tiếp trên câu trả lời mà chính họ không chắc đúng — điều này không phải phỏng đoán mà là lời học viên nói thẳng với nhóm khi được phỏng vấn riêng.
+3. Thứ nhóm em làm không phải để trả lời thay chị — nó dừng sớm hơn: giúp học viên nói được chỗ kẹt của mình trước khi câu hỏi thoát ra ngoài hoặc bị bỏ lại.
+
+**Bằng chứng — 3 nguồn phỏng vấn thật:**
+
+- *Từ LC-01:* Mỗi câu hỏi lạ mất 30 giây đến 1 phút chỉ để hiểu học viên cần gì, có lúc hiểu sai ý hỏi, có lúc trả lời không kịp. Phần bị hỏi nhiều nhất là setup môi trường.
+- *Từ học viên thuộc nhóm im lặng:* Ngại giơ tay sợ làm chậm mạch bài, chuyển sang hỏi bạn bè, câu trả lời đúng khoảng 80%, vẫn phải đi tiếp dù không chắc.
+- *Từ học viên đã dùng AI Tutor cũ:* Thấy không thoả đáng, chụp slide đưa lên ChatGPT bên ngoài, nói nguyên văn *"buộc phải tin thôi"* và *"ngại hỏi lab coach nên bỏ qua"*.
+
+Ba người, ba đường — cùng dẫn tới một chỗ: câu hỏi không được trả lời bằng nguồn kiểm chứng.
+
+**Small ask — Đề nghị hành động nhỏ, cụ thể:**
+
+> Xin LC-01 **10 phút trong tuần này** để trả lời đúng một câu: *"Cái gì sẽ khiến chị thấy công cụ này làm chị nhẹ đi chứ không nặng thêm?"* Nếu câu trả lời cho thấy hướng dùng được, nhóm mới xin thêm: nhờ chị chỉ 2 learner ít đặt câu hỏi nhất lớp để phỏng vấn mở rộng mẫu (10 phút).
+
+---
+
+## Bước 2 — Chuẩn Bị Phản Biện (Team — 5')
+
+**Phản biện có khả năng xảy ra nhất:**
+
+> *"AI đưa ra câu hỏi kẹt sai, học viên copy-paste mù quáng rồi hỏng cả môi trường — lúc đó tôi phải đi gỡ từng máy một."*
+
+Đây là nỗi sợ thật nhất và cụ thể nhất của LC-01 — chị đã nói điều này trong buổi phỏng vấn.
+
+**Câu trả lời dựa trên bằng chứng và hành động giảm rủi ro:**
+
+| Rủi ro | Bằng chứng / Hành động giảm rủi ro |
+|---|---|
+| AI gợi ý lệnh terminal sai, học viên làm theo, máy hỏng | Hệ thống **không bao giờ đưa lệnh thực thi sẵn** — chỉ gợi ý bước kiểm tra (debugging step) kèm link trích dẫn dòng trong tài liệu lab gốc để học viên đối chiếu. |
+| AI trả lời sai ngoài phạm vi tài liệu | **Confidence Threshold 85%:** Nếu điểm tự tin dưới 85%, AI từ chối suy đoán và tự động tạo Ticket báo Coach với đầy đủ context (log lỗi + đoạn chat). |
+| Học viên lười đọc tài liệu, ỷ vào AI | **Socratic flow:** AI chỉ đặt câu hỏi gợi mở *"Em đã thử bước nào rồi?"* và *"Trong tài liệu Lab 3 dòng 47 viết gì về bước này?"* — không đưa câu trả lời trực tiếp. |
+| Khó đo tác động thật | Team cam kết chạy thử trong sandbox, ghi nhận toàn bộ log trước khi xin chạy trong lớp thật. |
+
+> **Tóm lại:** Nếu công cụ không chắc, nó im. Nếu học viên cần thêm, nó escalate lên chị kèm đầy đủ thông tin để chị không mất thêm thời gian hỏi lại từ đầu.
+
+---
+
+## Bước 3 — Pitch Cá Nhân (Mỗi Thành Viên — 5')
+
+*Mỗi thành viên tự viết lại để kiểm tra xem có thật sự hiểu thông điệp hay chỉ gật đầu với bản nháp team.*
+
+### Nguyễn Việt Hải
+
+**Kết luận:** Xin chị mười phút để hỏi một câu — không xin phê duyệt gì cả.
+
+**Lý do:** Chị đang chọn ít can thiệp để học viên tự rèn — đó là quyết định sư phạm của chị. Nhưng phần câu hỏi không kịp trả lời không biến mất: nó đang chảy ra ChatGPT bên ngoài và học viên nhận về thứ họ không chắc đúng rồi đi tiếp. Thứ nhóm em muốn làm không phải trả lời thay chị — nó dừng sớm hơn, giúp học viên nói được chỗ mình kẹt là gì trước khi câu hỏi thoát ra ngoài.
+
+**Bằng chứng:** Ba buổi phỏng vấn riêng: từ chính chị (có lúc trả lời không kịp, mỗi câu lạ mất 30–60 giây chỉ để hiểu ý), từ học viên ngại giơ tay (hỏi bạn bè, đúng khoảng 80%, vẫn đi tiếp), từ học viên dùng AI Tutor cũ (*"buộc phải tin thôi"*).
+
+**Small ask:** Mười phút trong tuần này để chị trả lời một câu: *"Cái gì sẽ khiến chị thấy công cụ này làm chị nhẹ đi chứ không nặng thêm?"*
+
+---
+
+### Nguyễn Hoàng Minh
+
+**Kết luận:** Xin mười phút của chị để bàn về việc nhóm làm một thứ giúp học viên **gọi tên đúng chỗ mình đang kẹt trước khi hỏi chị**, chứ không phải một thứ trả lời thay chị.
+
+**Lý do:** Chỗ tốn thời gian của chị nằm ở khâu hiểu câu hỏi, không phải khâu trả lời — chính chị nói mỗi câu hỏi lạ mất từ 30 giây đến 1 phút chỉ để hiểu bạn đó đang cần gì. Nhóm muốn động vào đúng khâu đó. Công cụ không lấy mất phần tự chủ chị đang giữ cho học viên — nó dừng ở chỗ giúp diễn đạt, phần còn lại vẫn là việc của các bạn và của chị. Phần câu hỏi chị không kịp trả lời không biến mất — nó đang chảy ra AI bên ngoài mà không ai kiểm chứng.
+
+**Bằng chứng:** Ba nguồn phỏng vấn thật: từ chị (30–60 giây/câu lạ, có lúc hiểu sai, có lúc không kịp trả lời), từ học viên ngại giơ tay (hỏi bạn bè, 80% đúng, biết vậy vẫn đi tiếp), từ học viên dùng AI cũ (*"buộc phải tin thôi"*).
+
+**Small ask:** Mười phút, một câu duy nhất: *"Cái gì sẽ khiến chị thấy công cụ này làm chị nhẹ đi chứ không nặng thêm?"* — nếu câu trả lời cho thấy hướng dùng được, nhóm xin thêm nhờ chị chỉ 2 learner ít hỏi nhất lớp.
+
+---
+
+### Trịnh Hải Đăng
+
+**Kết luận:** Đề xuất tích hợp cơ chế Diagnostic Refresher & Verification Gate vào Codelabs VLearn để chẩn đoán lỗi môi trường máy và xác thực câu hỏi với tài liệu lab chuẩn trước khi chuyển tiếp cho Coach/TA.
+
+**Lý do:** (1) Triệt tiêu hallucination — hệ thống chỉ trích xuất từ tài liệu Markdown đã kiểm duyệt, kèm link trích dẫn chính xác. (2) Giải phóng thời gian nghẽn đầu giờ cho Coach — tự động xử lý lỗi cài đặt môi trường lặp lại. (3) Kiến trúc 2 tầng (Semantic Cache + Small LLM Router) kiểm soát được chi phí và latency.
+
+**Bằng chứng:** Phỏng vấn Chặng 2 xác nhận học viên mất hơn 45 phút vì AI ngoài gợi ý package deprecated. Coach thừa nhận 30 phút đầu buổi lab thường xuyên quá tải.
+
+**Small ask:** Xin LC-01 và Platform Lead 10 phút vào thứ Năm này để chạy demo Sandbox 1-click chẩn đoán lỗi với 5 học viên thực tế — không làm gián đoạn lịch học, không ảnh hưởng hệ thống live.
+
+---
+
+## Bước 4 — RACI Matrix (Team — 10')
+
+**Công việc quan trọng của dự án trong 1–2 tháng tới:**
+
+| Công việc | Hải (Product Lead) | Minh (Scope Owner) | Đăng (Tech Lead) | LC-01 (Lab Coach) | Platform Lead VLearn | Mentor |
+|---|:---:|:---:|:---:|:---:|:---:|:---:|
+| **1. Xác định & khóa scope use case** | **A** | **R** | C | C | I | C |
+| **2. Thu thập dữ liệu lab & log lỗi thực tế** | C | I | **A / R** | C | I | I |
+| **3. Xây dựng RAG Pipeline & MVP kỹ thuật** | I | C | **A / R** | I | C | I |
+| **4. Thiết kế Prompt, Evals & kiểm thử chất lượng** | R | C | **A** | C | I | C |
+| **5. Demo / Pilot trong buổi lab thực tế** | R | **A** | R | C | C | I |
+| **6. Quyết định tích hợp chính thức vào VLearn** | R | C | R | C | **A** | C |
+
+**Chú thích:**
+- **R — Responsible:** Người trực tiếp thực hiện công việc
+- **A — Accountable:** Người chịu trách nhiệm cuối cùng nếu công việc không xong (mỗi hàng chỉ có **1 A**)
+- **C — Consulted:** Cần hỏi ý kiến trước khi quyết định
+- **I — Informed:** Cần được thông báo kết quả
+
+**Ghi chú từng công việc:**
+
+1. **Xác định & khóa scope use case** — Hải là A vì scope ảnh hưởng đến toàn bộ milestone; Minh là R vì Minh có dữ liệu phỏng vấn Coach trực tiếp nhất. LC-01 và Mentor được C để tránh scope creep sau.
+
+2. **Thu thập dữ liệu lab & log lỗi** — Đăng là A+R vì dữ liệu là đầu vào của pipeline kỹ thuật; LC-01 được C để xin quyền truy cập log lỗi thực tế từ buổi lab.
+
+3. **Xây dựng RAG Pipeline & MVP** — Đăng là A+R toàn bộ. Platform Lead được C sớm để tránh xung đột tích hợp sau khi đã build xong.
+
+4. **Thiết kế Prompt, Evals & kiểm thử** — Đăng là A (chịu trách nhiệm chất lượng kỹ thuật cuối); Hải là R (viết test case từ dữ liệu phỏng vấn); LC-01 và Mentor được C để thẩm định tính đúng sư phạm.
+
+5. **Demo / Pilot trong buổi lab thực tế** — Minh là A vì Minh là đầu mối với LC-01; Hải và Đăng đều R (chuẩn bị kịch bản demo và hỗ trợ kỹ thuật).
+
+6. **Quyết định tích hợp chính thức** — Platform Lead là A duy nhất vì quyền này thuộc về nền tảng VLearn. Team chỉ có thể cung cấp bằng chứng và xin; không ai trong team có thể là A cho công việc này.
+
+---
+
+> **Quy tắc kiểm tra RACI của team:**
+> - Mỗi hàng có đúng **1 A** — nếu có 2 A, cần quyết định ai là người chịu trách nhiệm cuối.
+> - Không có hàng nào toàn C/I mà không có R — ai đó phải trực tiếp làm.
+> - LC-01 và Platform Lead chỉ ở C hoặc I — họ là stakeholder ngoài team, không là người thực hiện.
+
+---
+
+# Trang 3 — AI Team Design (Bản Thống Nhất Team 333)
+
+---
+
+## Bước 1 — Chọn Team Architecture (5')
+
+**Team 333 chọn: Embedded**
+
+**Lý do (1–2 câu):**
+
+Team hiện có 3 người, đang ở giai đoạn MVP cần đi nhanh từ prototype đến pilot trong một môi trường duy nhất (VLearn Codelabs). Ở quy mô này, nhúng toàn bộ năng lực AI trực tiếp vào squad sản phẩm là lựa chọn duy nhất thực tế — không cần và không đủ người để duy trì một hub AI trung tâm riêng biệt.
+
+> **Kiểm tra:** Mô hình Centralized đòi hỏi đội AI trung tâm phục vụ nhiều team/sản phẩm — không phù hợp khi team chỉ đang xây một tính năng. Mô hình Hybrid phù hợp hơn khi có nhiều squad cần dùng chung cơ sở hạ tầng AI — chưa đến giai đoạn này. Team sẽ cân nhắc chuyển sang Hybrid khi VLearn muốn nhân rộng AI Tutor sang các môn học khác hoặc track khác.
+
+---
+
+## Bước 2 — Xác Định Core Roles & Capability Gap (8')
+
+### 2.1 Sơ Đồ Vai Trò Hiện Tại (Ai đang làm gì)
+
+| Vai trò | Người đảm nhận | Mô tả thực tế |
+|---|---|---|
+| **AI Product / Squad Lead** | Nguyễn Việt Hải | Định hình trải nghiệm học tập, thiết kế luồng nghiệp vụ sư phạm, điều phối milestone và stakeholder |
+| **AI Engineer / RAG Engineer** | Trịnh Hải Đăng | Xây dựng RAG pipeline, thiết kế Prompt & Verification Gate, đo lường Evals (Hallucination Rate, Citation Precision) |
+| **Data / Backend / Scope Owner** | Nguyễn Hoàng Minh | Thu thập dữ liệu phỏng vấn, quản lý scope, đầu mối với LC-01 và vận hành lớp học |
+| **Domain Expert (Pedagogy)** | LC-01 — Lab Coach *(Consulted, ngoài team)* | Thẩm định tính đúng sư phạm của Socratic Prompt, cung cấp log lỗi và phản hồi từ buổi lab thật |
+| **Platform / Integration** | Platform Lead VLearn *(Consulted, ngoài team)* | Cấp API access, phê duyệt tích hợp Widget vào Codelabs |
+
+### 2.2 Core Roles — Cần Ngay (Must-have để đưa MVP ra pilot)
+
+| Vai trò | Trạng thái | Ai đang cover |
+|---|---|---|
+| AI Product / Squad Lead | ✅ Có | Hải |
+| AI Engineer (RAG + Prompt) | ✅ Có | Đăng |
+| Data collector / Scope manager | ✅ Có | Minh |
+| Domain Expert (Pedagogy) | ⚠️ Partial — Consulted only | LC-01 (ngoài team, chưa cam kết chính thức) |
+| UX / Interface designer | ❌ Thiếu | Chưa có ai |
+
+### 2.3 Extended Roles — Cần Khi Scale (Post-pilot)
+
+| Vai trò | Vì sao cần khi scale |
+|---|---|
+| MLOps / Evals specialist | Khi cần tự động hóa pipeline đánh giá chất lượng phản hồi AI theo thời gian thực trên toàn bộ lớp học |
+| Forward Deployed Engineer | Khi VLearn muốn tích hợp AI Tutor sang các track/môn học khác, cần người trực tiếp làm việc với team kỹ thuật VLearn |
+| Legal / Data Compliance | Khi xử lý log lỗi và chat history học viên ở quy mô lớn — cần tuân thủ quy định bảo vệ dữ liệu người dùng |
+| AI Ethics / Guardrails reviewer | Khi scale sang nhiều môn học — cần người định kỳ audit Prompt và output để tránh bias sư phạm |
+| Curriculum domain specialist | Khi mở rộng sang môn học khác ngoài Lab setup (ví dụ: Data Science, MLOps) — cần chuyên gia từng môn |
+
+### 2.4 Capability Gap — Tóm Tắt
+
+| Gap | Mức độ cấp thiết | Giai đoạn cần |
+|---|---|---|
+| **UX / Product design** | 🔴 Cấp thiết — ảnh hưởng ngay đến usability của pilot | Trước pilot đầu tiên |
+| **Domain expert cam kết chính thức (LC-01 hoặc Giảng viên)** | 🔴 Cấp thiết — không có người thẩm định sư phạm thì không dám release | Trước khi hoàn thiện Prompt |
+| **MLOps / Automated Evals pipeline** | 🟡 Quan trọng nhưng chưa blocking | Sau MVP, trước khi scale |
+
+---
+
+## Bước 3 — Priority Resourcing (Cách Bổ Sung Năng Lực) (7')
+
+Chọn 3 capability gap quan trọng nhất và phương án bổ sung:
+
+---
+
+### Gap 1: UX / Interface Design
+
+| | |
+|---|---|
+| **Capability gap** | Không có người thiết kế giao diện — prototype hiện tại là text-only, chưa có luồng UX cụ thể cho học viên dùng trong lúc làm lab |
+| **Phương án** | **Partner** — Làm việc với VLearn's design team (nếu có) hoặc nhờ một sinh viên UX/UI trong chương trình "AI Thực Chiến" tham gia với vai trò cộng tác viên có hướng dẫn |
+| **Vì sao không Hire / Outsource** | Quá sớm để hire full-time UX ở giai đoạn MVP chỉ 1 tính năng. Outsource freelance UX thường tốn 2–3 tuần lead time và không hiểu đủ context của buổi lab. Partner là đường nhanh nhất để có mockup dùng được. |
+| **Khi nào cần** | **Trước pilot đầu tiên** — cần ít nhất 1 màn hình wireframe để học viên và LC-01 có thứ nhìn vào khi demo |
+
+---
+
+### Gap 2: Domain Expert Cam Kết Chính Thức (Pedagogy Reviewer)
+
+| | |
+|---|---|
+| **Capability gap** | LC-01 và Giảng viên chuyên môn hiện chỉ ở vai Consulted, chưa cam kết chính thức. Nếu không có người thẩm định sư phạm, team không có cơ sở để tuyên bố Socratic Prompt đúng hướng dạy. |
+| **Phương án** | **Partner** — Sau cuộc gặp 10 phút xin Small Ask từ LC-01, nếu phản hồi tích cực, mời chị tham gia với vai trò **Pedagogy Advisor** (không cần hợp đồng, chỉ cần cam kết 30 phút/tuần review output mẫu) |
+| **Vì sao không Hire / Outsource** | Không cần hire full-time — cần ý kiến chuyên môn định kỳ, không cần người làm việc 8 tiếng/ngày. Outsource chuyên gia giáo dục bên ngoài sẽ mất thời gian onboard context VLearn Codelabs. LC-01 đã có đủ context, chỉ cần chuyển từ Consulted thành cam kết nhẹ. |
+| **Khi nào cần** | **Ngay tuần này** — trước khi hoàn thiện System Prompt và bộ Golden Dataset kiểm thử |
+
+---
+
+### Gap 3: MLOps / Automated Evals Pipeline
+
+| | |
+|---|---|
+| **Capability gap** | Đăng đang tự xây Evals pipeline thủ công. Khi số lượng câu hỏi và log tăng lên sau pilot, cần hệ thống tự động đánh giá chất lượng phản hồi AI định kỳ (Hallucination Rate, Citation Recall, User Satisfaction score). |
+| **Phương án** | **Outsource (công cụ/platform)** — Dùng công cụ Evals có sẵn (ví dụ: LangSmith, Ragas, hoặc Evidently AI) thay vì tự xây từ đầu. Không cần hire MLOps engineer ở giai đoạn này. |
+| **Vì sao không Hire / Partner** | Hire MLOps engineer ở giai đoạn 3 người là quá sớm và quá tốn. Partner với đơn vị MLOps bên ngoài thêm overhead quản lý. Dùng platform công cụ có sẵn là đủ cho quy mô pilot. |
+| **Khi nào cần** | **Sau MVP, trước khi scale sang >50 học viên** — khi lượng interaction đủ lớn để cần dashboard theo dõi chất lượng tự động |
+
+---
+
+## Bước 4 — Chốt Squad Goal (5')
+
+> **"Team/Squad 333 sở hữu toàn bộ pipeline AI Tutor — Diagnostic Refresher và chịu trách nhiệm đưa trải nghiệm hỏi đáp trong buổi lab của học viên VLearn từ hiện trạng *'kẹt mà không có nguồn kiểm chứng, phải đi hỏi AI bên ngoài rồi buộc phải tin'* đến *'có câu trả lời được xác thực từ tài liệu lab trong vòng 2 giây — trước khi cần escalate lên Coach.'"***
+
+---
+
+### Giải thích từng phần của Squad Goal
+
+| Phần | Nội dung | Vì sao chọn cách diễn đạt này |
+|---|---|---|
+| **Sở hữu gì** | Toàn bộ pipeline AI Tutor — Diagnostic Refresher | Team chịu trách nhiệm đầu-cuối: từ Prompt design, RAG pipeline, đến giao diện học viên dùng — không phải chỉ một phần kỹ thuật |
+| **Từ hiện trạng** | Kẹt mà không có nguồn kiểm chứng | Lấy nguyên lời học viên nói trong phỏng vấn: *"buộc phải tin thôi"* — đây là pain thật, không phải pain team tự nghĩ ra |
+| **Đến đích** | Có câu trả lời xác thực trong 2 giây, trước khi cần escalate lên Coach | Số 2 giây là cam kết kỹ thuật (p95 latency); "trước khi cần escalate" nhắc nhở team rằng Coach vẫn là tuyến cuối — AI chỉ là tuyến đầu |
+
+---
+
+> **Lưu ý:** Squad Goal này được viết cho giai đoạn Pilot — sẽ được cập nhật lại khi team đủ dữ liệu để mở rộng sang các môn học hoặc track khác trong chương trình "AI Thực Chiến".
